@@ -50,10 +50,15 @@ app.post('/upload', async (req, res) => {
       );
     }
 })
+app.get('/check',(req,res)=>{
+  res.send("Hello ji");
+  
+});
+const webhookroute=require("./routes/webhook");
+app.use('/webhook',webhookroute);
 
-app.get('/', (req, res) => { 
-    return res.send("Hello World")
-})
+
+
 
 app.listen(port, () => {
   console.log(`👂🏻 Example app listening on port ${process.env.PORT}`)
